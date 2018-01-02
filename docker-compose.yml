@@ -1,0 +1,17 @@
+odoo:
+  extends:
+    file: common.yml
+    service: odoo
+  volumes:
+    - ./modules:/mnt/extra-addons/
+  links:
+    - database:db
+  container_name: odoo_gestion_cv
+
+database:
+  extends:
+    file: common.yml
+    service: database
+  container_name: postgres_gestion_cv
+  ports:
+    - "5432:5432"

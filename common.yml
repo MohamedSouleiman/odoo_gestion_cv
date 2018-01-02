@@ -1,0 +1,9 @@
+odoo:
+  build: .
+  ports:
+    - "8080:8069"
+  container_name: odoo_gestion_cv
+database:
+  image: postgres:9.4
+  container_name: postgres_gestion_cv
+  env_file: .env
