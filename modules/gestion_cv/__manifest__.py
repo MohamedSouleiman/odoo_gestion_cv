@@ -23,7 +23,9 @@
 
 	'depends': ['base'],
 
-	'data':[],
+	'data':[
+		'views/personne.xml',
+	],
 
 	
 

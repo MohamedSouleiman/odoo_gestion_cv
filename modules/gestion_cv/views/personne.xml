@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+
+    <!--formulaire enregistrement-->
+    <record model="ir.ui.view" id="cv_personne_form">
+            <field name="name">cv_personne.form</field>  
+            <field name="model">cv.personne</field>
+            <field name="arch" type="xml">
+                <form string='CV'>
+                    <sheet>
+                        <notebook>
+                            <page string="Informations de l'employé">
+                                
+                                <group>
+                                    <field name="nom"/>
+                                    <field name="prenom"/>                        
+                                </group>
+                            
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    
+    <!--affichage de la liste des employes-->
+    <record model="ir.ui.view" id="cv_personne_tree">
+        <field name="name">cv_personne.tree</field>
+        <field name="model">cv.personne</field>
+        <field name="type">tree</field>
+
+        <field name="arch" type="xml">
+            <tree string="cv_personne List">
+                <field name="nom"/>
+                <field name="prenom"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--actions qui seront executees-->
+    <record model="ir.actions.act_window" id="action_cv_personne">
+        <field name="name">cv_personne</field>
+        <field name="res_model">cv.personne</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--nos differents menus-->
+    <menuitem name="Gestion cv" id="gestion_cv"/>
+    <menuitem name="CV" id="cv_personne_paye_section" parent="gestion_cv"/>
+    <menuitem name="Informations personnelles" id="cv_personne_register" parent="cv_personne_paye_section" action="action_cv_personne"/>
+
+</data>
+</odoo>
